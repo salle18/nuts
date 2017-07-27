@@ -1,0 +1,14 @@
+$positive: green;
+$negative: red;
+
+:host {
+  white-space: nowrap;
+}
+
+.positive {
+  color: $positive;
+}
+
+.negative {
+  color: $negative;
+}

@@ -1,0 +1,12 @@
+<md-card>
+    <md-card-header>
+        <md-card-title>{{title}}</md-card-title>
+        <md-card-subtitle>{{subtitle}}</md-card-subtitle>
+    </md-card-header>
+    <md-card-content>
+        <md-progress-spinner class="spinner" *ngIf="loading; else content" mode="indeterminate"></md-progress-spinner>
+        <ng-template #content>
+            <ng-content></ng-content>
+        </ng-template>
+    </md-card-content>
+</md-card>
