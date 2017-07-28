@@ -1,11 +1,11 @@
-import { browser, by, element } from 'protractor';
+import {browser, by, element} from 'protractor';
 
 export class NutsPage {
-  navigateTo() {
-    return browser.get('/');
-  }
+    public navigateTo(): any {
+        return browser.get('/');
+    }
 
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
-  }
+    public getParagraphText(): any {
+        return element(by.css('app-root h1')).getText();
+    }
 }

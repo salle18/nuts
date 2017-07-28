@@ -2,7 +2,6 @@ import {Action} from '@ngrx/store';
 import {Account, Transaction} from '../models';
 
 export namespace TransactionActions {
-
     const CATEGORY = 'Transaction';
 
     export const LOAD = `[${CATEGORY}] Load`;
@@ -19,75 +18,74 @@ export namespace TransactionActions {
     export const REMOVE_FAIL = `[${CATEGORY}] Remove Fail`;
 
     export class LoadAction implements Action {
-        readonly type = LOAD;
+        public readonly type: string = LOAD;
 
-        constructor(public payload: Account) { }
+        public constructor(public payload: Account) {}
     }
 
     export class LoadSuccessAction implements Action {
-        readonly type = LOAD_SUCCESS;
+        public readonly type: string = LOAD_SUCCESS;
 
-        constructor(public payload: Transaction[]) { }
+        public constructor(public payload: Transaction[]) {}
     }
 
     export class LoadFailAction implements Action {
-        readonly type = LOAD_FAIL;
+        public readonly type: string = LOAD_FAIL;
 
-        constructor(public payload: Account) {}
+        public constructor(public payload: Account) {}
     }
 
     export class AddAction implements Action {
-        readonly type = ADD;
+        public readonly type: string = ADD;
 
-        constructor(public payload: Transaction) { }
+        public constructor(public payload: Transaction) {}
     }
 
     export class AddSuccessAction implements Action {
-        readonly type = ADD_SUCCESS;
+        public readonly type: string = ADD_SUCCESS;
 
-        constructor(public payload: Transaction) { }
+        public constructor(public payload: Transaction) {}
     }
 
     export class AddFailAction implements Action {
-        readonly type = ADD_FAIL;
+        public readonly type: string = ADD_FAIL;
 
-        constructor(public payload: Transaction) { }
+        public constructor(public payload: Transaction) {}
     }
 
     export class UpdateAction implements Action {
-        readonly type = UPDATE;
+        public readonly type: string = UPDATE;
 
-        constructor(public payload: Transaction) { }
+        public constructor(public payload: Transaction) {}
     }
 
     export class UpdateSuccessAction implements Action {
-        readonly type = UPDATE_SUCCESS;
+        public readonly type: string = UPDATE_SUCCESS;
 
-        constructor(public payload: Transaction) { }
+        public constructor(public payload: Transaction) {}
     }
 
     export class UpdateFailAction implements Action {
-        readonly type = UPDATE_FAIL;
+        public readonly type: string = UPDATE_FAIL;
 
-        constructor(public payload: Transaction) { }
+        public constructor(public payload: Transaction) {}
     }
 
     export class RemoveAction implements Action {
-        readonly type = REMOVE;
+        public readonly type: string = REMOVE;
 
-        constructor(public payload: Transaction) { }
+        public constructor(public payload: Transaction) {}
     }
 
     export class RemoveSuccessAction implements Action {
-        readonly type = REMOVE_SUCCESS;
+        public readonly type: string = REMOVE_SUCCESS;
 
-        constructor(public payload: Transaction) { }
+        public constructor(public payload: Transaction) {}
     }
 
     export class RemoveFailAction implements Action {
-        readonly type = REMOVE_FAIL;
+        public readonly type: string = REMOVE_FAIL;
 
-        constructor(public payload: Transaction) { }
+        public constructor(public payload: Transaction) {}
     }
-
 }

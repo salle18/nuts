@@ -1,15 +1,14 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
-  selector: 'app-loading-card',
-  templateUrl: 'loading-card.component.html',
-  styleUrls: ['loading-card.component.scss']
+    selector: 'app-loading-card',
+    templateUrl: 'loading-card.component.html',
+    styleUrls: ['loading-card.component.scss']
 })
 export class LoadingCardComponent {
+    @Input() public loading: boolean = false;
 
-  @Input() public loading: boolean = false;
+    @Input() public title: string = '';
 
-  @Input() public title: string = '';
-
-  @Input() public subtitle: string = '';
+    @Input() public subtitle: string = '';
 }

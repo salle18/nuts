@@ -4,4 +4,7 @@ import {AmountComponent} from './amount/amount.component';
 import {LoadingCardComponent} from './loading-card/loading-card.component';
 import {TransactionsListComponent} from './transactions-list/transactions-list.component';
 
-export const components = [AccountDetailsComponent, AccountsListComponent, AmountComponent, LoadingCardComponent, TransactionsListComponent];
+export const components = [
+    AccountDetailsComponent, AccountsListComponent, AmountComponent, LoadingCardComponent,
+    TransactionsListComponent
+];

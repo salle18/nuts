@@ -1,4 +1,4 @@
-import {Currency} from "./Currency";
+import {Currency} from './Currency';
 
 export class Account {
     public id: number = -1;

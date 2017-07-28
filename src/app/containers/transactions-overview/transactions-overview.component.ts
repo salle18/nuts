@@ -1,14 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {StateService} from "../../services";
-import {Observable} from "rxjs/Observable";
-import {Account, Transaction} from "../../models";
+import {Observable} from 'rxjs/Observable';
 
-@Component({
-    selector: 'app-transactions-overview',
-    templateUrl: 'transactions-overview.component.html'
-})
+import {Account, Transaction} from '../../models';
+import {StateService} from '../../services';
+
+@Component(
+    {selector: 'app-transactions-overview', templateUrl: 'transactions-overview.component.html'})
 export class TransactionsOverviewComponent implements OnInit {
-
     public selectedAccount$: Observable<Account>;
 
     public transactions$: Observable<Transaction[]>;

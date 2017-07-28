@@ -1,8 +1,3 @@
-import { createSelector } from 'reselect';
-import { ActionReducer } from '@ngrx/store';
-import * as fromRouter from '@ngrx/router-store';
-import { environment } from '../../environments/environment';
-
 /**
  * The compose function is one of our most handy tools. In basic terms, you give
  * it any number of functions and it returns a function. This new function
@@ -11,15 +6,9 @@ import { environment } from '../../environments/environment';
  *
  * More: https://drboolean.gitbooks.io/mostly-adequate-guide/content/ch5.html
  */
-import { compose } from '@ngrx/core/compose';
-
-/**
- * storeFreeze prevents state from being mutated. When mutation occurs, an
- * exception will be thrown. This is useful during development mode to
- * ensure that none of the reducers accidentally mutates the state.
- */
-import { storeFreeze } from 'ngrx-store-freeze';
-
+import {compose} from '@ngrx/core/compose';
+import * as fromRouter from '@ngrx/router-store';
+import {ActionReducer} from '@ngrx/store';
 /**
  * combineReducers is another useful metareducer that takes a map of reducer
  * functions and creates a new reducer that gathers the values
@@ -28,8 +17,16 @@ import { storeFreeze } from 'ngrx-store-freeze';
  *
  * More: https://egghead.io/lessons/javascript-redux-implementing-combinereducers-from-scratch
  */
-import { combineReducers } from '@ngrx/store';
+import {combineReducers} from '@ngrx/store';
+/**
+ * storeFreeze prevents state from being mutated. When mutation occurs, an
+ * exception will be thrown. This is useful during development mode to
+ * ensure that none of the reducers accidentally mutates the state.
+ */
+import {storeFreeze} from 'ngrx-store-freeze';
+import {createSelector} from 'reselect';
 
+import {environment} from '../../environments/environment';
 
 /**
  * Every reducer module's default export is the reducer function itself. In
@@ -67,7 +64,7 @@ const reducers = {
 const developmentReducer: ActionReducer<State> = compose(storeFreeze, combineReducers)(reducers);
 const productionReducer: ActionReducer<State> = combineReducers(reducers);
 
-export function reducer(state: any, action: any) {
+export function reducer(state: any, action: any): State {
     if (environment.production) {
         return productionReducer(state, action);
     } else {
@@ -108,10 +105,14 @@ export const getAccountsState = (state: State) => state.accounts;
 export const getAccountsLoaded = createSelector(getAccountsState, fromAccounts.getLoaded);
 export const getAccountsLoading = createSelector(getAccountsState, fromAccounts.getLoading);
 export const getAccountsCollection = createSelector(getAccountsState, fromAccounts.getCollection);
-export const getAccountsSelectedAccount = createSelector(getAccountsState, fromAccounts.getSelectedAccount);
+export const getAccountsSelectedAccount =
+    createSelector(getAccountsState, fromAccounts.getSelectedAccount);
 
 export const getTransactionsState = (state: State) => state.transactions;
 
-export const getTransactionsLoaded = createSelector(getTransactionsState, fromTransactions.getLoaded);
-export const getTransactionsLoading = createSelector(getTransactionsState, fromTransactions.getLoading);
-export const getTransactionsCollection = createSelector(getTransactionsState, fromTransactions.getCollection);
+export const getTransactionsLoaded =
+    createSelector(getTransactionsState, fromTransactions.getLoaded);
+export const getTransactionsLoading =
+    createSelector(getTransactionsState, fromTransactions.getLoading);
+export const getTransactionsCollection =
+    createSelector(getTransactionsState, fromTransactions.getCollection);

@@ -1,4 +1,4 @@
-import { EffectsModule } from '@ngrx/effects';
+import {EffectsModule} from '@ngrx/effects';
 
 import {AccountsEffects} from './accounts.effect';
 import {TransactionsEffects} from './transactions.effect';
