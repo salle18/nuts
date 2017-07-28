@@ -1,4 +1,4 @@
 export const environment = {
-  production: true,
-  api: 'http://nuts.dev/api'
+    production: true,
+    api: 'http://nuts.dev/api'
 };

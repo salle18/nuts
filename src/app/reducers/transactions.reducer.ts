@@ -1,5 +1,5 @@
 import {TransactionActions} from '../actions';
-import {Transaction} from "../models";
+import {Transaction} from '../models';
 
 export interface State {
     loaded: boolean;
@@ -13,25 +13,16 @@ const initialState: State = {
     collection: []
 };
 
-export function reducer(state = initialState, action: any): State {
+export function reducer(state: State = initialState, action: any): State {
     switch (action.type) {
         case TransactionActions.LOAD:
-            return Object.assign({}, state, {
-                loading: true
-            });
+            return Object.assign({}, state, {loading: true});
         case TransactionActions.LOAD_SUCCESS:
-            return Object.assign({}, state, {
-                loaded: true,
-                loading: false,
-                collection: action.payload
-            });
+            return Object.assign(
+                {}, state, {loaded: true, loading: false, collection: action.payload});
         case TransactionActions.LOAD_FAIL:
-            return Object.assign({}, state, {
-                loading: false
-            });
-        default: {
-            return state;
-        }
+            return Object.assign({}, state, {loading: false});
+        default: { return state; }
     }
 }
 

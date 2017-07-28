@@ -1,5 +1,5 @@
-import {AppComponent} from './app/app.component';
 import {AccountsOverviewComponent} from './accounts-overview/accounts-overview.component';
+import {AppComponent} from './app/app.component';
 import {TransactionsOverviewComponent} from './transactions-overview/transactions-overview.component';
 
 export * from './app/app.component';

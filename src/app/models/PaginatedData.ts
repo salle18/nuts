@@ -5,7 +5,7 @@ export class PaginatedData<T> {
     public last_page: number = 0;
     public next_page_url: string = '';
     public prev_page_url: string = '';
-    from: number = 0;
-    to: number = 0;
-    data: T[]
+    public from: number = 0;
+    public to: number = 0;
+    public data: T[];
 }

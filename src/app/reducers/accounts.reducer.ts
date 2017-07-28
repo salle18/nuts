@@ -1,5 +1,5 @@
 import {AccountsActions} from '../actions';
-import {Account} from "../models";
+import {Account} from '../models';
 
 export interface State {
     loaded: boolean;
@@ -15,29 +15,18 @@ const initialState: State = {
     selectedAccount: new Account()
 };
 
-export function reducer(state = initialState, action: any): State {
+export function reducer(state: State = initialState, action: any): State {
     switch (action.type) {
         case AccountsActions.SELECT:
-            return Object.assign({}, state, {
-                selectedAccount: action.payload
-            });
+            return Object.assign({}, state, {selectedAccount: action.payload});
         case AccountsActions.LOAD:
-            return Object.assign({}, state, {
-                loading: true
-            });
+            return Object.assign({}, state, {loading: true});
         case AccountsActions.LOAD_SUCCESS:
-            return Object.assign({}, state, {
-                loaded: true,
-                loading: false,
-                collection: action.payload
-            });
+            return Object.assign(
+                {}, state, {loaded: true, loading: false, collection: action.payload});
         case AccountsActions.LOAD_FAIL:
-            return Object.assign({}, state, {
-                loading: false
-            });
-        default: {
-            return state;
-        }
+            return Object.assign({}, state, {loading: false});
+        default: { return state; }
     }
 }
 

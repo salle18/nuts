@@ -1,14 +1,13 @@
-import { Component, Input } from '@angular/core';
-import {Account} from "../../models";
+import {Component, Input} from '@angular/core';
+import {Account} from '../../models';
 
 @Component({
-  selector: 'app-amount',
-  templateUrl: 'amount.component.html',
-  styleUrls: ['amount.component.scss']
+    selector: 'app-amount',
+    templateUrl: 'amount.component.html',
+    styleUrls: ['amount.component.scss']
 })
 export class AmountComponent {
+    @Input() public amount: number = 0;
 
-  @Input() public amount: number = 0;
-
-  @Input() public currencyCode: string = '';
+    @Input() public currencyCode: string = '';
 }
