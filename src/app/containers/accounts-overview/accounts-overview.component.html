@@ -1,6 +1,6 @@
 <md-toolbar>
-    <span>Nuts</span>
+    <span>{{'application_title' | translate}}</span>
 </md-toolbar>
-<app-loading-card [title]="'Accounts'" [subtitle]="'Your accounts with balances'" [loading]="accountsLoading$ | async">
+<app-loading-card [title]="'accounts_title' | translate" [subtitle]="'accounts_description' | translate" [loading]="accountsLoading$ | async">
     <app-accounts-list [accounts]="accounts$ | async" (selectAccount)="onSelectAccount($event)"></app-accounts-list>
 </app-loading-card>

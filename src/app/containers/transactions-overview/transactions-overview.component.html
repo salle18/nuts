@@ -2,6 +2,6 @@
     <span>Nuts</span>
 </md-toolbar>
 <app-account-details [account]="selectedAccount$ | async"></app-account-details>
-<app-loading-card [title]="'Transactions'" [subtitle]="'Your transactions'" [loading]="transactionsLoading$ | async">
+<app-loading-card [title]="'transactions_title' | translate" [loading]="transactionsLoading$ | async">
     <app-transactions-list [transactions]="transactions$ | async"></app-transactions-list>
 </app-loading-card>

@@ -1,5 +1,5 @@
 import {Action} from '@ngrx/store';
-import {Account, Transaction} from '../models';
+import {Account} from '../models';
 
 export namespace AccountsActions {
     const CATEGORY = 'Account';
