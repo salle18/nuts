@@ -7,6 +7,9 @@ export namespace AccountsActions {
     export const LOAD = `[${CATEGORY}] Load`;
     export const LOAD_SUCCESS = `[${CATEGORY}] Load Success`;
     export const LOAD_FAIL = `[${CATEGORY}] Load Fail`;
+    export const FETCH = `[${CATEGORY}] Fetch`;
+    export const FETCH_SUCCESS = `[${CATEGORY}] Fetch Success`;
+    export const FETCH_FAIL = `[${CATEGORY}] Fetch Fail`;
     export const ADD = `[${CATEGORY}] Add`;
     export const ADD_SUCCESS = `[${CATEGORY}] Add Success`;
     export const ADD_FAIL = `[${CATEGORY}] Add Fail`;
@@ -27,6 +30,24 @@ export namespace AccountsActions {
     }
 
     export class LoadFailAction implements Action { public readonly type: string = LOAD_FAIL; }
+
+    export class FetchAction implements Action {
+        public readonly type: string = FETCH;
+
+        public constructor(public payload: Account) {}
+    }
+
+    export class FetchSuccessAction implements Action {
+        public readonly type: string = FETCH_SUCCESS;
+
+        public constructor(public payload: Account) {}
+    }
+
+    export class FetchFailAction implements Action {
+        public readonly type: string = FETCH_FAIL;
+
+        public constructor(public payload: Account) {}
+    }
 
     export class AddAction implements Action {
         public readonly type: string = ADD;

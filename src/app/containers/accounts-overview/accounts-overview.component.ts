@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
+import {go} from '@ngrx/router-store';
 
 import {AccountsActions} from '../../actions';
 import {Account} from '../../models';
@@ -20,5 +21,6 @@ export class AccountsOverviewComponent implements OnInit {
 
     public onSelectAccount(account: Account): void {
         this.stateService.dispatch(new AccountsActions.SelectAction(account));
+        this.stateService.dispatch(go(`accounts/${account.id}`));
     }
 }

@@ -4,24 +4,21 @@ import {Account} from '../models';
 export interface State {
     loaded: boolean;
     loading: boolean;
-    collection: Account[];
+    instance: Account;
 }
 
 const initialState: State = {
     loaded: false,
     loading: false,
-    collection: []
+    instance: new Account()
 };
 
 export function reducer(state: State = initialState, action: any): State {
     switch (action.type) {
-        case AccountsActions.LOAD:
+        case AccountsActions.FETCH:
             return Object.assign({}, state, {loading: true});
-        case AccountsActions.LOAD_SUCCESS:
-            return Object.assign(
-                {}, state, {loaded: true, loading: false, collection: action.payload});
-        case AccountsActions.LOAD_FAIL:
-            return Object.assign({}, state, {loading: false});
+        case AccountsActions.SELECT:
+            return Object.assign({}, state, {loaded: true, loading: false, instance: action.payload});
         default: { return state; }
     }
 }
@@ -30,4 +27,4 @@ export const getLoaded = (state: State) => state.loaded;
 
 export const getLoading = (state: State) => state.loading;
 
-export const getCollection = (state: State) => state.collection;
+export const getInstance = (state: State) => state.instance;

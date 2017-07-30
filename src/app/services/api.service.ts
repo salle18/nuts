@@ -16,6 +16,10 @@ export class ApiService {
         return this.http.get(`${api}/accounts`).map(toJSON).delay(2500);
     }
 
+    public fetchAccount(account: Account): Observable<Account> {
+        return this.http.get(`${api}/accounts/${account.id}`).map(toJSON).delay(2500);
+    }
+
     public loadTransactions(account: Account): Observable<PaginatedData<Transaction>> {
         return this.http.get(`${api}/accounts/${account.id}/transactions`).map(toJSON).delay(2500);
     }

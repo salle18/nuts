@@ -1,22 +1,14 @@
 import {Injectable} from '@angular/core';
 import {Actions, Effect, toPayload} from '@ngrx/effects';
-import {go} from '@ngrx/router-store';
 import {Action} from '@ngrx/store';
 import {Observable} from 'rxjs/Observable';
 
-import {AccountsActions, TransactionActions} from '../actions';
+import {AccountsActions} from '../actions';
 import {Account} from '../models';
 import {ApiService} from '../services';
 
 @Injectable()
 export class AccountsEffects {
-    @Effect()
-    public select$: Observable<Action> =
-        this.actions$.ofType(AccountsActions.SELECT)
-            .map(toPayload)
-            .mergeMap(
-                (account: Account) =>
-                    [new TransactionActions.LoadAction(account), go(`accounts/${account.id}`)]);
 
     @Effect()
     public load$: Observable<Action> =
@@ -27,6 +19,17 @@ export class AccountsEffects {
                               (accounts: Account[]) =>
                                   new AccountsActions.LoadSuccessAction(accounts))
                           .catch(() => Observable.of(new AccountsActions.LoadFailAction())));
+
+    @Effect()
+    public fetch$: Observable<Action> =
+        this.actions$.ofType(AccountsActions.FETCH)
+            .map(toPayload)
+            .switchMap((account: Account) => this.apiService.fetchAccount(account)
+                    .mergeMap((fetchedAccount: Account) => [
+                                new AccountsActions.FetchSuccessAction(fetchedAccount),
+                                new AccountsActions.SelectAction(fetchedAccount)
+                            ])
+                    .catch(() => Observable.of(new AccountsActions.FetchFailAction(account))));
 
     public constructor(private actions$: Actions, private apiService: ApiService) {}
 }

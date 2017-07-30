@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
-import {MdCardModule, MdIconModule, MdListModule, MdProgressSpinnerModule, MdToolbarModule} from '@angular/material';
+import {MdButtonModule, MdCardModule, MdIconModule, MdListModule, MdMenuModule, MdProgressSpinnerModule, MdToolbarModule} from '@angular/material';
 
 @NgModule({
-    imports: [MdCardModule, MdIconModule, MdListModule, MdProgressSpinnerModule, MdToolbarModule],
-    exports: [MdCardModule, MdIconModule, MdListModule, MdProgressSpinnerModule, MdToolbarModule]
+    imports: [MdButtonModule, MdCardModule, MdIconModule, MdListModule, MdMenuModule, MdProgressSpinnerModule, MdToolbarModule],
+    exports: [MdButtonModule, MdCardModule, MdIconModule, MdListModule, MdMenuModule, MdProgressSpinnerModule, MdToolbarModule]
 })
 export class MaterialModule {
 }

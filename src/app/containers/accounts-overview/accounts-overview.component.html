@@ -1,6 +1,4 @@
-<md-toolbar>
-    <span>Nuts</span>
-</md-toolbar>
+<app-toolbar-menu></app-toolbar-menu>
 <app-loading-card [title]="'Accounts'" [subtitle]="'Your accounts with balances'" [loading]="accountsLoading$ | async">
     <app-accounts-list [accounts]="accounts$ | async" (selectAccount)="onSelectAccount($event)"></app-accounts-list>
 </app-loading-card>

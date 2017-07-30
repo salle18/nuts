@@ -4,12 +4,16 @@ import {AccountsOverviewComponent} from './containers/accounts-overview/accounts
 import {TransactionsOverviewComponent} from './containers/transactions-overview/transactions-overview.component';
 import {AccountsOverviewGuard, TransactionsOverviewGuard} from './guards';
 
+export const showAccountsRoute = 'accounts';
+
+export const showTransactionsRoute = 'accounts/:id';
+
 export const routes: Routes = [
-    {path: 'accounts', component: AccountsOverviewComponent, canActivate: [AccountsOverviewGuard]},
+    {path: showAccountsRoute, component: AccountsOverviewComponent, canActivate: [AccountsOverviewGuard]},
     {
-      path: 'accounts/:id',
+      path: showTransactionsRoute,
       component: TransactionsOverviewComponent,
       canActivate: [TransactionsOverviewGuard]
     },
-    {path: '**', redirectTo: 'accounts'}
+    {path: '**', redirectTo: showAccountsRoute}
 ];

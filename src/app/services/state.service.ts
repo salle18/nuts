@@ -8,6 +8,11 @@ import * as fromRoot from '../reducers';
 
 @Injectable()
 export class StateService {
+
+    /**
+     * Accounts
+     */
+
     public accountsLoaded$: Observable<boolean> = this.store.select(fromRoot.getAccountsLoaded);
 
     public accountsLoading$: Observable<boolean> = this.store.select(fromRoot.getAccountsLoading);
@@ -15,8 +20,22 @@ export class StateService {
     public accountsCollection$: Observable<Account[]> =
         this.store.select(fromRoot.getAccountsCollection);
 
-    public accountsSelectedAccount$: Observable<Account> =
-        this.store.select(fromRoot.getAccountsSelectedAccount);
+    /**
+     * Selected account
+     */
+
+    public selectedAccountLoaded$: Observable<boolean> =
+        this.store.select(fromRoot.getSelectedAccountLoaded);
+
+    public selectedAccountLoading$: Observable<boolean> =
+        this.store.select(fromRoot.getSelectedAccountLoading);
+
+    public selectedAccountInstance$: Observable<Account> =
+        this.store.select(fromRoot.getSelectedAccountInstance);
+
+    /**
+     * Transactions
+     */
 
     public transactionsLoaded$: Observable<boolean> =
         this.store.select(fromRoot.getTransactionsLoaded);

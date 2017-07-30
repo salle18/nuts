@@ -1,7 +1,7 @@
-<md-toolbar>
-    <span>Nuts</span>
-</md-toolbar>
-<app-account-details [account]="selectedAccount$ | async"></app-account-details>
+<app-toolbar-menu></app-toolbar-menu>
+<app-loading-card [loading]="selectedAccountLoading$ | async">
+    <app-account-details [account]="selectedAccount$ | async"></app-account-details>
+</app-loading-card>
 <app-loading-card [title]="'Transactions'" [subtitle]="'Your transactions'" [loading]="transactionsLoading$ | async">
     <app-transactions-list [transactions]="transactions$ | async"></app-transactions-list>
 </app-loading-card>

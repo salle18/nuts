@@ -1,6 +1,10 @@
-<md-list>
-    <md-list-item *ngFor="let transaction of transactions">
-        <h3 md-line> {{transaction.description}} </h3>
-        <app-amount class="right" [amount]="transaction.amount"></app-amount>
-    </md-list-item>
-</md-list>
+<md-card>
+    <md-card-content>
+        <md-list>
+            <md-list-item *ngFor="let transaction of transactions">
+                <h3 md-line> {{transaction.description}} </h3>
+                <app-amount class="right" [amount]="transaction.amount"></app-amount>
+            </md-list-item>
+        </md-list>
+    </md-card-content>
+</md-card>

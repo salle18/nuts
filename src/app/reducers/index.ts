@@ -35,6 +35,7 @@ import {environment} from '../../environments/environment';
  * notation packages up all of the exports into a single object.
  */
 import * as fromAccounts from './accounts.reducer';
+import * as fromSelectedAccount from './selected-account.reducer';
 import * as fromTransactions from './transactions.reducer';
 
 /**
@@ -43,6 +44,7 @@ import * as fromTransactions from './transactions.reducer';
  */
 export interface State {
     accounts: fromAccounts.State;
+    selectedAccount: fromSelectedAccount.State;
     transactions: fromTransactions.State;
     router: fromRouter.RouterState;
 }
@@ -57,6 +59,7 @@ export interface State {
  */
 const reducers = {
     accounts: fromAccounts.reducer,
+    selectedAccount: fromSelectedAccount.reducer,
     transactions: fromTransactions.reducer,
     router: fromRouter.routerReducer,
 };
@@ -100,13 +103,31 @@ export function reducer(state: any, action: any): State {
  * Just like with the books selectors, we also have to compose the search
  * reducer's and collection reducer's selectors.
  */
+
+/**
+ * Accounts
+ */
+
 export const getAccountsState = (state: State) => state.accounts;
 
 export const getAccountsLoaded = createSelector(getAccountsState, fromAccounts.getLoaded);
 export const getAccountsLoading = createSelector(getAccountsState, fromAccounts.getLoading);
 export const getAccountsCollection = createSelector(getAccountsState, fromAccounts.getCollection);
-export const getAccountsSelectedAccount =
-    createSelector(getAccountsState, fromAccounts.getSelectedAccount);
+
+/**
+ * Selected account
+ */
+
+export const getSelectedAccountState = (state: State) => state.selectedAccount;
+
+export const getSelectedAccountLoaded = createSelector(getSelectedAccountState, fromSelectedAccount.getLoaded);
+export const getSelectedAccountLoading = createSelector(getSelectedAccountState, fromSelectedAccount.getLoading);
+export const getSelectedAccountInstance = createSelector(getSelectedAccountState, fromSelectedAccount.getInstance);
+
+
+/**
+ * Transactions
+ */
 
 export const getTransactionsState = (state: State) => state.transactions;
 

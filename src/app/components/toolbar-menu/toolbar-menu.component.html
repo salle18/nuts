@@ -1,0 +1,14 @@
+<md-toolbar>
+    <span>Nuts</span>
+    <span class="spacer"></span>
+    <a md-button [routerLink]="['/accounts']" [disabled]="isShowAccountsRoute$ | async">Your accounts</a>
+    <button md-icon-button [mdMenuTriggerFor]="profileMenu">
+        <md-icon>account_circle</md-icon>
+    </button>
+</md-toolbar>
+
+<md-menu #profileMenu="mdMenu" [overlapTrigger]="false">
+    <a md-menu-item><md-icon>settings</md-icon> Settings</a>
+    <a md-menu-item><md-icon>power_settings_new</md-icon> Logout <md-icon></md-icon></a>
+</md-menu>
+
