@@ -1,0 +1,16 @@
+{
+    "application_title": "Nuts",
+    "account_title": "Account title",
+    "accounts_title": "Accounts",
+    "transactions_title": "Transactions",
+    "retry_action": "Retry?",
+    "cancel_action": "Cancel",
+    "toolbar_user_accounts": "Your accounts",
+    "toolbar_menu_logout": "Logout",
+    "toolbar_menu_settings": "Settings",
+    "error_server_general_error": "Server error",
+    "error_accounts_load_fail": "Error loading accounts...",
+    "error_accounts_fetch_fail": "Error fetching account...",
+    "error_transactions_load_fail": "Error loading transactions...",
+    "error_loading_data": "Error loading data..."
+}

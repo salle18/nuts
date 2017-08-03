@@ -1,10 +1,11 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output, ChangeDetectionStrategy} from '@angular/core';
 import {Account} from '../../models';
 
 @Component({
     selector: 'app-accounts-list',
     templateUrl: 'accounts-list.component.html',
-    styleUrls: ['accounts-list.component.scss']
+    styleUrls: ['accounts-list.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AccountsListComponent {
     @Input() public accounts: Account[] = [];

@@ -1,16 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {Observable} from "rxjs/Observable";
-import {showAccountsRoute} from "../../routes";
+import {Component, ChangeDetectionStrategy, Input} from '@angular/core';
 
-@Component({selector: 'app-toolbar-menu', templateUrl: 'toolbar-menu.component.html', styleUrls: ['toolbar-menu.component.scss']})
-export class ToolbarMenuComponent implements OnInit {
+@Component({
+    selector: 'app-toolbar-menu',
+    templateUrl: 'toolbar-menu.component.html',
+    styleUrls: ['toolbar-menu.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class ToolbarMenuComponent {
 
-    public isShowAccountsRoute$: Observable<boolean>;
-
-    public constructor(private activatedRoute: ActivatedRoute) {}
-
-    public ngOnInit(): void {
-        this.isShowAccountsRoute$ = this.activatedRoute.url.map(segments => segments.map(segment => segment.toString()).join('') === showAccountsRoute);
-    }
+    @Input() public disableUserAccounts: boolean = false;
 }

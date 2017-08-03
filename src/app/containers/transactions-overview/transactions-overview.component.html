@@ -1,7 +1,7 @@
 <app-toolbar-menu></app-toolbar-menu>
-<app-loading-card [loading]="selectedAccountLoading$ | async">
+<app-loading-card titleKey="account_title" errorKey="error_accounts_fetch_fail" [loading]="selectedAccountLoading$ | async" [loaded]="selectedAccountLoaded$ | async">
     <app-account-details [account]="selectedAccount$ | async"></app-account-details>
 </app-loading-card>
-<app-loading-card [title]="'Transactions'" [subtitle]="'Your transactions'" [loading]="transactionsLoading$ | async">
+<app-loading-card titleKey="transactions_title" errorKey="error_transactions_load_fail" [loading]="transactionsLoading$ | async" [loaded]="transactionsLoaded$ | async">
     <app-transactions-list [transactions]="transactions$ | async"></app-transactions-list>
 </app-loading-card>

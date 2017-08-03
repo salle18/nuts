@@ -16,7 +16,7 @@ const initialState: State = {
 export function reducer(state: State = initialState, action: any): State {
     switch (action.type) {
         case TransactionActions.LOAD:
-            return Object.assign({}, state, {loading: true});
+            return Object.assign({}, state, {loaded: false, loading: true});
         case TransactionActions.LOAD_SUCCESS:
             return Object.assign(
                 {}, state, {loaded: true, loading: false, collection: action.payload});

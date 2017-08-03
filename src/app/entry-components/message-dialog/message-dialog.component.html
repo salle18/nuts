@@ -1,0 +1,6 @@
+<h1 md-dialog-title>{{titleKey | translate}}</h1>
+<div md-dialog-content>{{messageKey | translate}}</div>
+<div md-dialog-actions>
+    <button md-button color="primary" [md-dialog-close]="false">{{cancelActionKey | translate}}</button>
+    <button md-button color="primary" [md-dialog-close]="true">{{confirmActionKey | translate}}</button>
+</div>

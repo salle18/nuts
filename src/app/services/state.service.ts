@@ -8,7 +8,6 @@ import * as fromRoot from '../reducers';
 
 @Injectable()
 export class StateService {
-
     /**
      * Accounts
      */
@@ -47,7 +46,9 @@ export class StateService {
         this.store.select(fromRoot.getTransactionsCollection);
 
     public dispatch(action: Action): void {
-        this.store.dispatch(action);
+        if (action) {
+            this.store.dispatch(action);
+        }
     }
 
     public constructor(private store: Store<fromRoot.State>) {}

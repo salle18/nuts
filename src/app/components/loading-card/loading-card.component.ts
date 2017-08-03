@@ -1,14 +1,19 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, ChangeDetectionStrategy} from '@angular/core';
 
 @Component({
     selector: 'app-loading-card',
     templateUrl: 'loading-card.component.html',
-    styleUrls: ['loading-card.component.scss']
+    styleUrls: ['loading-card.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoadingCardComponent {
     @Input() public loading: boolean = false;
+    
+    @Input() public loaded: boolean = true;
 
-    @Input() public title: string = '';
+    @Input() public titleKey: string = '';
 
-    @Input() public subtitle: string = '';
+    @Input() public subtitleKey: string = '';
+
+    @Input() public errorKey: string = 'error_loading_data';
 }

@@ -16,9 +16,14 @@ const initialState: State = {
 export function reducer(state: State = initialState, action: any): State {
     switch (action.type) {
         case AccountsActions.FETCH:
-            return Object.assign({}, state, {loading: true});
+            return Object.assign({}, state, {loaded: false, loading: true});
+        case AccountsActions.FETCH_FAIL:
+            return Object.assign({}, state, {loading: false});
+        case AccountsActions.FETCH_SUCCESS:
+            return Object.assign({}, state, {loaded: true, loading: false});
         case AccountsActions.SELECT:
-            return Object.assign({}, state, {loaded: true, loading: false, instance: action.payload});
+            return Object.assign(
+                {}, state, {loaded: true, loading: false, instance: action.payload});
         default: { return state; }
     }
 }

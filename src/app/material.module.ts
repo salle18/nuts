@@ -1,9 +1,16 @@
 import {NgModule} from '@angular/core';
-import {MdButtonModule, MdCardModule, MdIconModule, MdListModule, MdMenuModule, MdProgressSpinnerModule, MdToolbarModule} from '@angular/material';
+/*tslint:disable-next-line:max-line-length */
+import {MdButtonModule, MdCardModule, MdDialogModule, MdIconModule, MdListModule, MdMenuModule, MdProgressSpinnerModule, MdSnackBarModule, MdToolbarModule} from '@angular/material';
 
 @NgModule({
-    imports: [MdButtonModule, MdCardModule, MdIconModule, MdListModule, MdMenuModule, MdProgressSpinnerModule, MdToolbarModule],
-    exports: [MdButtonModule, MdCardModule, MdIconModule, MdListModule, MdMenuModule, MdProgressSpinnerModule, MdToolbarModule]
+    imports: [
+        MdButtonModule, MdCardModule, MdDialogModule, MdIconModule, MdListModule, MdMenuModule, MdProgressSpinnerModule,
+        MdSnackBarModule, MdToolbarModule
+    ],
+    exports: [
+        MdButtonModule, MdCardModule, MdDialogModule, MdIconModule, MdListModule, MdMenuModule, MdProgressSpinnerModule,
+        MdSnackBarModule, MdToolbarModule
+    ]
 })
 export class MaterialModule {
 }

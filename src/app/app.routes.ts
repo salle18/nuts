@@ -9,7 +9,11 @@ export const showAccountsRoute = 'accounts';
 export const showTransactionsRoute = 'accounts/:id';
 
 export const routes: Routes = [
-    {path: showAccountsRoute, component: AccountsOverviewComponent, canActivate: [AccountsOverviewGuard]},
+    {
+      path: showAccountsRoute,
+      component: AccountsOverviewComponent,
+      canActivate: [AccountsOverviewGuard]
+    },
     {
       path: showTransactionsRoute,
       component: TransactionsOverviewComponent,

@@ -2,7 +2,7 @@ import {Action} from '@ngrx/store';
 import {Account, Transaction} from '../models';
 
 export namespace TransactionActions {
-    const CATEGORY = 'Transaction';
+    const CATEGORY = 'Transactions';
 
     export const LOAD = `[${CATEGORY}] Load`;
     export const LOAD_SUCCESS = `[${CATEGORY}] Load Success`;

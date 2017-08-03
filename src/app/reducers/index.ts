@@ -120,9 +120,12 @@ export const getAccountsCollection = createSelector(getAccountsState, fromAccoun
 
 export const getSelectedAccountState = (state: State) => state.selectedAccount;
 
-export const getSelectedAccountLoaded = createSelector(getSelectedAccountState, fromSelectedAccount.getLoaded);
-export const getSelectedAccountLoading = createSelector(getSelectedAccountState, fromSelectedAccount.getLoading);
-export const getSelectedAccountInstance = createSelector(getSelectedAccountState, fromSelectedAccount.getInstance);
+export const getSelectedAccountLoaded =
+    createSelector(getSelectedAccountState, fromSelectedAccount.getLoaded);
+export const getSelectedAccountLoading =
+    createSelector(getSelectedAccountState, fromSelectedAccount.getLoading);
+export const getSelectedAccountInstance =
+    createSelector(getSelectedAccountState, fromSelectedAccount.getInstance);
 
 
 /**

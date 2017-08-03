@@ -3,10 +3,21 @@
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
 .left {
   float: left;
 }
 
 .right {
   float: right;
+}
+
+.mat-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
 }
