@@ -7,4 +7,5 @@ export * from './accounts-overview/accounts-overview.component';
 export * from './app/app.component';
 export * from './login/login.component';
 export * from './transactions-overview/transactions-overview.component';
-export const containers = [AccountsOverviewComponent, AppComponent, LoginComponent, TransactionsOverviewComponent];
+export const containers =
+    [AccountsOverviewComponent, AppComponent, LoginComponent, TransactionsOverviewComponent];

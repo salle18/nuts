@@ -1,7 +1,7 @@
 import {Action} from '@ngrx/store';
 import {Account, Transaction} from '../models';
 
-export namespace TransactionActions {
+export namespace TransactionsActions {
     const CATEGORY = 'Transactions';
 
     export const LOAD = `[${CATEGORY}] Load`;

@@ -1,18 +1,19 @@
 import {Routes} from '@angular/router';
 
-import {AccountsOverviewComponent} from './containers/accounts-overview/accounts-overview.component';
-import {TransactionsOverviewComponent} from './containers/transactions-overview/transactions-overview.component';
-import {AccountsOverviewGuard, TransactionsOverviewGuard} from './guards';
+import {AccountsOverviewComponent, LoginComponent, TransactionsOverviewComponent} from './containers';
+import {AccountsOverviewGuard, LoginGuard, TransactionsOverviewGuard} from './guards';
+
+export const loginRoute = 'login';
 
 export const showAccountsRoute = 'accounts';
 
 export const showTransactionsRoute = 'accounts/:id';
 
 export const routes: Routes = [
-    {
-      path: showAccountsRoute,
-      component: AccountsOverviewComponent,
-      canActivate: [AccountsOverviewGuard]
+    {path: loginRoute, component: LoginComponent, canActivate: [LoginGuard]}, {
+        path: showAccountsRoute,
+        component: AccountsOverviewComponent,
+        canActivate: [AccountsOverviewGuard]
     },
     {
       path: showTransactionsRoute,

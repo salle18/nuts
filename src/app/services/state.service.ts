@@ -3,7 +3,7 @@ import {Action} from '@ngrx/store';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs/Observable';
 
-import {Account, Transaction} from '../models';
+import {Account, Transaction, User} from '../models';
 import * as fromRoot from '../reducers';
 
 @Injectable()
@@ -45,11 +45,24 @@ export class StateService {
     public transactionsCollection$: Observable<Transaction[]> =
         this.store.select(fromRoot.getTransactionsCollection);
 
+    /**
+     * User
+     */
+
+    public userAuthenticated$: Observable<boolean> =
+        this.store.select(fromRoot.getUserAuthenticated);
+
+    public userLoaded$: Observable<boolean> = this.store.select(fromRoot.getUserLoaded);
+
+    public userLoading$: Observable<boolean> = this.store.select(fromRoot.getUserLoading);
+
+    public userInstance$: Observable<User> = this.store.select(fromRoot.getUserInstance);
+
+    public constructor(private store: Store<fromRoot.State>) {}
+
     public dispatch(action: Action): void {
         if (action) {
             this.store.dispatch(action);
         }
     }
-
-    public constructor(private store: Store<fromRoot.State>) {}
 }

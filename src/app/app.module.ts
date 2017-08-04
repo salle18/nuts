@@ -2,6 +2,7 @@ import './operators';
 
 import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
+import {ReactiveFormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule} from '@angular/router';
@@ -26,8 +27,8 @@ import {services} from './services';
     entryComponents: [...entryComponents],
     imports: [
         BrowserModule, HttpClientModule, RouterModule.forRoot(routes), BrowserAnimationsModule,
-        MaterialModule, StoreModule.provideStore(reducer), RouterStoreModule.connectRouter(),
-        StoreDevtoolsModule.instrumentOnlyWithExtension(),
+        MaterialModule, ReactiveFormsModule, StoreModule.provideStore(reducer),
+        RouterStoreModule.connectRouter(), StoreDevtoolsModule.instrumentOnlyWithExtension(),
         TranslateModule.forRoot(translateConfigProvider), ...effects
     ],
     providers: [...services, ...guards, ...providers],

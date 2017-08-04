@@ -37,6 +37,7 @@ import {environment} from '../../environments/environment';
 import * as fromAccounts from './accounts.reducer';
 import * as fromSelectedAccount from './selected-account.reducer';
 import * as fromTransactions from './transactions.reducer';
+import * as fromUser from './user.reducer';
 
 /**
  * As mentioned, we treat each reducer like a table in a database. This means
@@ -44,9 +45,10 @@ import * as fromTransactions from './transactions.reducer';
  */
 export interface State {
     accounts: fromAccounts.State;
+    router: fromRouter.RouterState;
     selectedAccount: fromSelectedAccount.State;
     transactions: fromTransactions.State;
-    router: fromRouter.RouterState;
+    user: fromUser.State;
 }
 
 
@@ -59,9 +61,10 @@ export interface State {
  */
 const reducers = {
     accounts: fromAccounts.reducer,
+    router: fromRouter.routerReducer,
     selectedAccount: fromSelectedAccount.reducer,
     transactions: fromTransactions.reducer,
-    router: fromRouter.routerReducer,
+    user: fromUser.reducer
 };
 
 const developmentReducer: ActionReducer<State> = compose(storeFreeze, combineReducers)(reducers);
@@ -140,3 +143,14 @@ export const getTransactionsLoading =
     createSelector(getTransactionsState, fromTransactions.getLoading);
 export const getTransactionsCollection =
     createSelector(getTransactionsState, fromTransactions.getCollection);
+
+/**
+ * User
+ */
+
+export const getUserState = (state: State) => state.user;
+
+export const getUserAuthenticated = createSelector(getUserState, fromUser.getAuthenticated);
+export const getUserLoaded = createSelector(getUserState, fromUser.getLoaded);
+export const getUserLoading = createSelector(getUserState, fromUser.getLoading);
+export const getUserInstance = createSelector(getUserState, fromUser.getInstance);
