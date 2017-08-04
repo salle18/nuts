@@ -1,11 +1,14 @@
-import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 
 import {Account, Transaction} from '../../models';
 import {StateService} from '../../services';
 
-@Component(
-    {selector: 'app-transactions-overview', templateUrl: 'transactions-overview.component.html', changeDetection: ChangeDetectionStrategy.OnPush})
+@Component({
+    selector: 'app-transactions-overview',
+    templateUrl: 'transactions-overview.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush
+})
 export class TransactionsOverviewComponent implements OnInit {
     public selectedAccount$: Observable<Account>;
 

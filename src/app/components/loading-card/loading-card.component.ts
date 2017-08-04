@@ -1,4 +1,4 @@
-import {Component, Input, ChangeDetectionStrategy} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 
 @Component({
     selector: 'app-loading-card',
@@ -8,7 +8,7 @@ import {Component, Input, ChangeDetectionStrategy} from '@angular/core';
 })
 export class LoadingCardComponent {
     @Input() public loading: boolean = false;
-    
+
     @Input() public loaded: boolean = true;
 
     @Input() public titleKey: string = '';

@@ -17,5 +17,4 @@ export namespace MessagesActions {
         public readonly type: string = SHOW_DIALOG;
         public constructor(public payload: Message) {}
     }
-
 }

@@ -1,4 +1,4 @@
-import {Component, ChangeDetectionStrategy, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 
 @Component({
     selector: 'app-toolbar-menu',
@@ -7,6 +7,5 @@ import {Component, ChangeDetectionStrategy, Input} from '@angular/core';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ToolbarMenuComponent {
-
     @Input() public disableUserAccounts: boolean = false;
 }

@@ -1,4 +1,4 @@
-import {Component, ChangeDetectionStrategy, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 
 @Component({
     selector: 'app-message-dialog',
@@ -6,12 +6,11 @@ import {Component, ChangeDetectionStrategy, Input} from '@angular/core';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MessageDialogComponent {
-
     @Input() public titleKey: string = '';
-    
+
     @Input() public messageKey: string = '';
-    
+
     @Input() public confirmActionKey: string = '';
-    
+
     @Input() public cancelActionKey: string = 'cancel_action';
 }

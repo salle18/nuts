@@ -3,14 +3,15 @@ import {APP_INITIALIZER} from '@angular/core';
 import {TranslateLoader, TranslateService} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
-const defaultLocale = 'en';
+import {defaultLocale, translationsExtension, translationsLocation} from '../app.config';
+
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     const date = +new Date();
-    return new TranslateHttpLoader(http, 'assets/i18n/', `.json?${date}`);
+    return new TranslateHttpLoader(http, translationsLocation, `.${translationsExtension}?${date}`);
 }
 
-export const translateConfig = {
+export const translateConfigProvider = {
     loader: {provide: TranslateLoader, useFactory: HttpLoaderFactory, deps: [HttpClient]}
 };
 

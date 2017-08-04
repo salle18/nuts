@@ -1,4 +1,4 @@
-import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {go} from '@ngrx/router-store';
 import {Observable} from 'rxjs/Observable';
 
@@ -6,7 +6,11 @@ import {AccountsActions} from '../../actions';
 import {Account} from '../../models';
 import {StateService} from '../../services';
 
-@Component({selector: 'app-accounts-overview', templateUrl: 'accounts-overview.component.html', changeDetection: ChangeDetectionStrategy.OnPush})
+@Component({
+    selector: 'app-accounts-overview',
+    templateUrl: 'accounts-overview.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush
+})
 export class AccountsOverviewComponent implements OnInit {
     public accounts$: Observable<Account[]>;
 

@@ -1,12 +1,11 @@
 import {Injectable} from '@angular/core';
 import {Actions, Effect, toPayload} from '@ngrx/effects';
 import {Action} from '@ngrx/store';
-
 import {Observable} from 'rxjs/Observable';
 
 import {MessagesActions} from '../actions';
-import {MessageService} from "../services";
-import {Message} from "../models";
+import {Message} from '../models';
+import {MessageService} from '../services';
 
 @Injectable()
 export class MessagesEffects {
@@ -22,6 +21,5 @@ export class MessagesEffects {
             .map(toPayload)
             .do((message: Message) => this.messageService.showConfirmDialog(message));
 
-    public constructor(
-        private actions$: Actions, private messageService: MessageService) {}
+    public constructor(private actions$: Actions, private messageService: MessageService) {}
 }
