@@ -9,5 +9,5 @@
 
 <md-menu #profileMenu="mdMenu" [overlapTrigger]="false">
     <a md-menu-item><md-icon>settings</md-icon> {{'toolbar_menu_settings' | translate}}</a>
-    <a md-menu-item><md-icon>power_settings_new</md-icon> {{'toolbar_menu_logout' | translate}}</a>
+    <a (click)="onLogout()" md-menu-item><md-icon>power_settings_new</md-icon> {{'toolbar_menu_logout' | translate}}</a>
 </md-menu>

@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
             {username: ['', Validators.required], password: ['', Validators.required]});
     }
 
-
     public onSubmit(): void {
         const user = Object.assign(new User(), this.form.value);
         this.stateService.dispatch(new UserActions.AuthenticateAction(user));

@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 
 import {environment} from '../../environments/environment';
-import {Account, PaginatedData, Transaction} from '../models';
+import {Account, PaginatedData, Transaction, User} from '../models';
 
 const api = environment.api;
 
@@ -21,6 +21,11 @@ export class ApiService {
         return this.httpClient
             .get<PaginatedData<Transaction>>(`${api}/accounts/${account.id}/transactions`)
             .delay(2500);
+    }
+    
+    public authenticate(user: User): Observable<User> {
+        return this.httpClient
+            .post<User>(`${api}/authenticate`, user);
     }
 
     public constructor(private httpClient: HttpClient) {}

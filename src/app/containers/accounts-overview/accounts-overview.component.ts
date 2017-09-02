@@ -5,6 +5,7 @@ import {Observable} from 'rxjs/Observable';
 import {AccountsActions} from '../../actions';
 import {Account} from '../../models';
 import {StateService} from '../../services';
+import {showTransactionsRoute} from "../../app.routes";
 
 @Component({
     selector: 'app-accounts-overview',
@@ -28,6 +29,6 @@ export class AccountsOverviewComponent implements OnInit {
 
     public onSelectAccount(account: Account): void {
         this.stateService.dispatch(new AccountsActions.SelectAction(account));
-        this.stateService.dispatch(go(`accounts/${account.id}`));
+        this.stateService.dispatch(go(showTransactionsRoute(account.id)));
     }
 }

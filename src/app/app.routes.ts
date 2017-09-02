@@ -7,7 +7,7 @@ export const loginRoute = 'login';
 
 export const showAccountsRoute = 'accounts';
 
-export const showTransactionsRoute = 'accounts/:id';
+export const showTransactionsRoute = (id: any = ':id') => `accounts/${id}`;
 
 export const routes: Routes = [
     {path: loginRoute, component: LoginComponent, canActivate: [LoginGuard]}, {
@@ -16,7 +16,7 @@ export const routes: Routes = [
         canActivate: [AccountsOverviewGuard]
     },
     {
-      path: showTransactionsRoute,
+      path: showTransactionsRoute(),
       component: TransactionsOverviewComponent,
       canActivate: [TransactionsOverviewGuard]
     },

@@ -1,4 +1,6 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {StateService} from "../../services";
+import {UserActions} from '../../actions';
 
 @Component({
     selector: 'app-toolbar-menu',
@@ -8,4 +10,10 @@ import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 })
 export class ToolbarMenuComponent {
     @Input() public disableUserAccounts: boolean = false;
+    
+    public onLogout(): void {
+        this.stateService.dispatch(new UserActions.LogoutAction());
+    }
+    
+    public constructor(private stateService: StateService) {}
 }

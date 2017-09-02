@@ -7,6 +7,7 @@ export namespace UserActions {
     export const AUTHENTICATE = `[${CATEGORY}] Authenticate`;
     export const AUTHENTICATE_SUCCESS = `[${CATEGORY}] Authenticate Success`;
     export const AUTHENTICATE_FAIL = `[${CATEGORY}] Authenticate Fail`;
+    export const LOGOUT = `[${CATEGORY}] Logout`;
 
     export class AuthenticateAction implements Action {
         public readonly type: string = AUTHENTICATE;
@@ -24,5 +25,9 @@ export namespace UserActions {
         public readonly type: string = AUTHENTICATE_FAIL;
 
         public constructor(public payload: User) {}
+    }
+
+    export class LogoutAction implements Action {
+        public readonly type: string = LOGOUT;
     }
 }

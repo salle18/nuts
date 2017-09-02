@@ -25,6 +25,12 @@ export function reducer(state: State = initialState, action: any): State {
                 {authenticated: true, loaded: true, loading: false, instance: action.payload});
         case UserActions.AUTHENTICATE_FAIL:
             return Object.assign({}, state, {loading: false});
+        case UserActions.LOGOUT:
+            return Object.assign({}, state, {
+                authenticated: false,
+                loaded: false,
+                loading: false
+            });
         default: { return state; }
     }
 }
